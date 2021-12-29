@@ -1,0 +1,50 @@
+.dashboard-sidebar-menu
+    max-width: 160px
+
+    @media screen and (max-width: 600px)
+        display: none
+        
+    
+
+    header
+        margin: 4em 0 4em 0
+
+        a
+            display: inline-block
+            text-decoration: none
+
+    .__nav
+        a
+            display: flex
+            width: 100%
+            padding: .8em
+            margin: .5em 0
+            color: #012D26
+            text-decoration: none
+            font-size: 16px
+            box-sizing: border-box
+            position: relative
+            transition: .3s all
+
+
+            &:hover,
+            &.__active
+                background-color: #fff
+                color: #3948FF
+                box-shadow: 0px 0px 15px rgba(28, 41, 44, 0.2)
+                border-radius: 0 23px 23px 0
+
+            &.__active
+
+                &:before
+                    content: ''
+                    height: 100%
+                    width: 4px
+                    background-color: #3948FF
+                    position: absolute 
+                    left: 0
+                    top: 0
+
+            img
+                margin-left: 10px 
+                margin-right: 10px 
