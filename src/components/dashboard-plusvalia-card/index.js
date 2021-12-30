@@ -1,8 +1,12 @@
 import React from 'react'
 import styles from './styles.module.sass'
 
+import NumberFormat from 'react-number-format'
+
 
 const DashboarPlusvaliaCard = (props) => {
+
+  const { valuation } = props
 
   return (
 
@@ -24,23 +28,23 @@ const DashboarPlusvaliaCard = (props) => {
 
         <section className={styles['list-plusvalia']}>
           {
-            [1,2].map( (item, i)=> (
-              <div className={styles['list-plusvalia__item']}>
+            valuation?.map( (item, i)=> (
+              <div className={styles['list-plusvalia__item']} key={i}>
                 <span className={styles['__counter']}>{i+1}</span>
                 <ul>
                   <li>
-                    <span className={styles['__title']}><b>Agrícola Oriental</b></span>
+                    <span className={styles['__title']}><b>{ item?.zone }</b></span>
                     <span className={styles['__value']}>
-                      <i className={styles['__icon'] +' '+ styles['__icon-down']}></i>
+                      <i className={styles['__icon'] +' '+ styles['__icon-up']}></i>
                     </span>            
                   </li>
                   <li className={styles['li-dotted']}>
                     <span className={styles['__name']}>Plusvalia</span>
-                    <span className={styles['__value']}>3.6%</span>
+                    <span className={styles['__value']}>{ item?.valuation_last_90d }</span>
                   </li>
                   <li>
                     <span className={styles['__name']}>Precio por m²</span>
-                    <span className={styles['__value']}>45,000</span>
+                    <span className={styles['__value']}><NumberFormat value={item?.price_m2} displayType={'text'} thousandSeparator={true} prefix={'$'} /></span>
                   </li>
                 </ul>           
               </div>

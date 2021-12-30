@@ -4,10 +4,12 @@ import styles from './styles.module.sass'
 
 const DashboarUserWelcome = (props) => {
 
+  const { user } = props
+
   return (
 
     <section className={styles['dashboard-user-welcome']}>
-      <h3>Hola, Roberto Dominguez</h3>
+      <h3>Hola, {user?.first_name} {user?.last_name}</h3>
     </section>
   )
 }

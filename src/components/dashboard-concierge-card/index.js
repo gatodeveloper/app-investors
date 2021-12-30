@@ -4,6 +4,8 @@ import styles from './styles.module.sass'
 
 const DashboarConciergeCard = (props) => {
 
+  const { concierge } = props
+
   return (
 
     <section className={'white-card ' + styles['dashboard-concierge-card']}>
@@ -12,24 +14,24 @@ const DashboarConciergeCard = (props) => {
           <div className="gs keep-lay">
             <div className="lay-auto">
               <figure>
-                <img src="https://lahaus.imgix.net/static/plus/investors/assets/avatar.png" width="102px"  alt=""/>
+                <img src={concierge?.image_profile} width="102px"  alt=""/>
               </figure>
             </div>
             <div className="lay">
-              <h3>Youseff Abraham</h3>
-              <span>CDMX</span>
+              <h3>{ concierge?.first_name } { concierge?.last_name }</h3>
+              <span>{ concierge?.location }</span>
             </div>
           </div>
         </header>
-        <p className='__quote'>“Garantizar que tu capital crezca a través de inversiones inteligentes”</p>
+        <p className='__quote'>{ concierge?.quote }</p>
         <div>
           <div className="gs keep-lay">
             <div className="lay flex align-items-center">
-              <b className='text-33 bold-600 mr-10px'>05</b>
+              <b className='text-33 bold-600 mr-10px'>{ concierge?.years_experience }</b>
               <span>Años de experiencia</span>
             </div>
             <div className="lay flex align-items-center">
-              <b className='text-33 bold-600 mr-10px'>78</b>
+              <b className='text-33 bold-600 mr-10px'>{ concierge?.properties_sold }</b>
               <span>Depas vendidos</span>
             </div>
           </div>
@@ -37,13 +39,10 @@ const DashboarConciergeCard = (props) => {
         <div className={styles['skills-area']}>
           <p>Habilidades</p>
           <ul>
-            <li>Preventas</li>
-            <li>CDMX</li>
-            <li>Inversiones</li>
-            <li>Plus Valía</li>
+            { concierge?.skills.map( (skill,k) => (<li key={k}>{skill}</li>))}          
           </ul>
         </div>
-        <a className='btn btn-green btn-block btn-sm mt-20px' href="/" >Mensajear a mi asesor</a>
+        <a className='btn btn-green btn-block btn-sm mt-20px' href={concierge?.whatsapp_number} target="_black">Mensajear a mi asesor</a>
     </section>
   )
 }

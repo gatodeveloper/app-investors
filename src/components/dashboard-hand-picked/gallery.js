@@ -63,7 +63,7 @@ const HandPickedGallery = (props) => {
 
           {
             [1,2,3].map( (item, k) => (
-              <figure className={styles['preview-photos']}>
+              <figure className={styles['preview-photos']} key={k}>
                 <span className={styles['__id']}>JM59</span>
                 <span className={styles['__location']}>Tabacalera, CDMX</span>
               </figure>
